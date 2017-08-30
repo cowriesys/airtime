@@ -135,6 +135,45 @@ namespace Cisl
             return result;
         }
 
+        public AirtimeResult DataCredit(Network net, String msisdn, int amount, string xref)
+        {
+            AirtimeResult result = new AirtimeResult();
+            result.ResultCode = "0";
+            String Nonce = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            msisdn = Regex.Replace(msisdn, @"(?<PREFIX>^0)(?<TAIL>\d*)", @"234${TAIL}");
+
+            try
+            {
+                WebClient http = new WebClient();
+                http.QueryString.Add("net", net.ToString());
+                http.QueryString.Add("msisdn", msisdn);
+                http.QueryString.Add("amount", amount.ToString());
+                http.QueryString.Add("xref", xref);
+
+                String Signature = ComputeSignature(Nonce, http.QueryString);               
+
+                http.Headers.Add("ClientId", ClientId);
+                http.Headers.Add("Signature", Signature);
+                http.Headers.Add("Nonce", Nonce);
+
+                String response = http.DownloadString(URL + "/data/Credit");
+                result = JsonConvert.DeserializeObject<AirtimeResult>(response);
+                result.ResultCode = "200";
+            }
+            catch (WebException wex)
+            {
+                if (wex.Status == WebExceptionStatus.ProtocolError)
+                {
+                    HttpStatusCode httpStatus = ((HttpWebResponse)wex.Response).StatusCode;
+                    result.ResultCode = httpStatus.ToString();
+                    result.message = wex.Message;
+                    result.xref = xref;
+                }
+            }
+
+            return result;
+        }
+
         public AirtimeResult AgentCredit(Network net, String msisdn, int amount, string xref)
         {
             AirtimeResult result = new AirtimeResult();
@@ -158,6 +197,43 @@ namespace Cisl
                 http.Headers.Add("TerminalId", TerminalId);
 
                 String response = http.DownloadString(URL + "/terminal/Credit");
+                result = JsonConvert.DeserializeObject<AirtimeResult>(response);
+                result.ResultCode = "200";
+            }
+            catch (WebException wex)
+            {
+                if (wex.Status == WebExceptionStatus.ProtocolError)
+                {
+                    result.ResultCode = ((HttpWebResponse)wex.Response).StatusCode.ToString();
+                }
+            }
+
+            return result;
+        }
+
+        public AirtimeResult AgentDataCredit(Network net, String msisdn, int amount, string xref)
+        {
+            AirtimeResult result = new AirtimeResult();
+            result.ResultCode = "0";
+            String Nonce = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            msisdn = Regex.Replace(msisdn, @"(?<PREFIX>^0)(?<TAIL>\d*)", @"234${TAIL}");
+
+            try
+            {
+                WebClient http = new WebClient();
+                http.QueryString.Add("net", net.ToString());
+                http.QueryString.Add("msisdn", msisdn);
+                http.QueryString.Add("amount", amount.ToString());
+                http.QueryString.Add("xref", xref);
+
+                String Signature = ComputeSignature(Nonce, http.QueryString);                
+
+                http.Headers.Add("AgentId", ClientId);
+                http.Headers.Add("Signature", Signature);
+                http.Headers.Add("Nonce", Nonce);
+                http.Headers.Add("TerminalId", TerminalId);
+
+                String response = http.DownloadString(URL + "/terminal/data/Credit");
                 result = JsonConvert.DeserializeObject<AirtimeResult>(response);
                 result.ResultCode = "200";
             }

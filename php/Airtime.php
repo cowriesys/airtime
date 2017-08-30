@@ -52,6 +52,27 @@ class Airtime {
 		curl_close($request);
 	}
 
+	public function dataCredit($net, $msisdn, $amount) {
+		$api = '/data/Credit';
+		$nonce = uniqid();
+		$queryString = '?net='.$net.'&msisdn='.$msisdn.'&amount='.$amount.'&xref='.$nonce;
+
+		$signature = $this->sign($nonce.$queryString);
+
+		$request = curl_init($this->url.$api.$queryString);
+		curl_setopt($request, CURLOPT_HTTPHEADER, array('ClientId: '.$this->clientId,
+		                                                'Signature: '.$signature,
+		                                                'Nonce: '.$nonce));
+		$result = curl_exec($request);
+
+		if (!$result) {
+		    die('Error: "' . curl_error($request) . '" - Code: ' . curl_errno($request));
+		}
+
+		echo($result);
+		curl_close($request);
+	}
+
 	public function agent_balance() {
 		$api = '/terminal/Balance';
 		$nonce = uniqid();

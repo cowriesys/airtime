@@ -42,6 +42,15 @@ def Credit(net, msisdn, amount, xref):
     credit.raise_for_status()
     return credit.text
 
+def DataCredit(net, msisdn, amount, xref):
+    parameters = {'net' : net, 'msisdn' : msisdn, 'amount' : amount, 'xref' : xref }
+    nonce = Nonce()
+    signature = Sign(nonce, parameters)
+    headers = {'ClientId' : clientId, 'Signature' : signature, 'Nonce' : nonce}
+    credit = requests.get(url + "/data/Credit", headers = headers, params = parameters)
+    credit.raise_for_status()
+    return credit.text
+
 def Check(reference):
     parameters = {'reference' : reference}
     nonce = Nonce()

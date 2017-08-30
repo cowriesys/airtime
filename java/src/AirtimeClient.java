@@ -129,6 +129,48 @@ public class AirtimeClient {
 		return credit;
 	}
 
+	public JsonObject dataCredit(String net, String msisdn, int amount, String xref) {
+
+		JsonObject credit = null;
+
+		try {
+			String query = MessageFormat.format("?net={0}&msisdn={1}&amount={2}&xref={3}", net, msisdn, amount, xref);
+			URL rest = new URL(url + "/data/Credit" + query);
+			HttpURLConnection connection = (HttpURLConnection) rest.openConnection();
+			connection.setRequestMethod("GET");
+
+			String nonce = nonce();
+			String signature = sign(nonce, query);
+
+			connection.setRequestProperty("ClientId", clientId);
+			connection.setRequestProperty("Signature", signature);
+			connection.setRequestProperty("Nonce", nonce);
+
+			if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
+				throw new RuntimeException("Failed : HTTP error code : " + connection.getResponseCode());
+			}
+
+			JsonReader jreader = Json.createReader(connection.getInputStream());
+			credit = jreader.readObject();
+			connection.disconnect();
+
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		} catch (InvalidKeyException e) {
+			e.printStackTrace();
+			
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+			
+		}
+
+		return credit;
+	}
+
 	public JsonObject check(String xref) {
 
 		JsonObject check = null;
@@ -220,6 +262,49 @@ public class AirtimeClient {
 		try {
 			String query = MessageFormat.format("?net={0}&msisdn={1}&amount={2}&xref={3}", net, msisdn, amount, xref);
 			URL rest = new URL(url + "/terminal/Credit" + query);
+			HttpURLConnection connection = (HttpURLConnection) rest.openConnection();
+			connection.setRequestMethod("GET");
+
+			String nonce = nonce();
+			String signature = sign(nonce, query);
+
+			connection.setRequestProperty("AgentId", clientId);
+			connection.setRequestProperty("Signature", signature);
+			connection.setRequestProperty("Nonce", nonce);
+			connection.setRequestProperty("TerminalId", TerminalId);
+
+			if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
+				throw new RuntimeException("Failed : HTTP error code : " + connection.getResponseCode());
+			}
+
+			JsonReader jreader = Json.createReader(connection.getInputStream());
+			credit = jreader.readObject();
+			connection.disconnect();
+
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		} catch (InvalidKeyException e) {
+			e.printStackTrace();
+			
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+			
+		}
+
+		return credit;
+	}
+
+	public JsonObject agentDataCredit(String net, String msisdn, int amount, String xref) {
+
+		JsonObject credit = null;
+
+		try {
+			String query = MessageFormat.format("?net={0}&msisdn={1}&amount={2}&xref={3}", net, msisdn, amount, xref);
+			URL rest = new URL(url + "/terminal/data/Credit" + query);
 			HttpURLConnection connection = (HttpURLConnection) rest.openConnection();
 			connection.setRequestMethod("GET");
 
