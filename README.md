@@ -78,7 +78,7 @@ A successful request will return the following JSON encoded response
 
 ## Data Request
 ```
-Request URL https://api.cowriesys.com:2443/airtime/Balance 
+Request URL https://api.cowriesys.com:2443/data/Credit?net=AIR&msisdn=2348124661601&amount=100&xref=7734c7da7687442
 Request Headers 
 ClientId: me@client.com 
 Signature: TAP2kgjhhodYUcawFIwsn2GSxjoyVvWWQDZMhHuMFFM= 
@@ -172,6 +172,14 @@ A successful request will return the following JSON encoded response
     xref: "7734c7da7687442"
 }
 ```
+
+## Network Codes
+Network|Code
+-------|----
+Airtel|AIR
+Glo|GLO
+MTN|MTN
+9Mobile|ETI
 
 ## Response Error Codes
 A failed request will result in one of the following HTTP response error codes.
