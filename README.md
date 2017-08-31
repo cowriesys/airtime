@@ -37,7 +37,8 @@ Data|Credit a data plan to a phone number on network
 Check|Get the details of an airtime transaction using a unique identifier
 
 ## Balance Request
-`Request URL https://api.cowriesys.com:2443/airtime/Balance 
+`
+Request URL https://api.cowriesys.com:2443/airtime/Balance 
 Request Headers 
 ClientId: me@client.com 
 Signature: TAP2kgjhhodYUcawFIwsn2GSxjoyVvWWQDZMhHuMFFM= 
@@ -53,7 +54,8 @@ Nonce: 20151110202513869
 ```
 
 ## Credit Request
-`Request URL https://api.cowriesys.com:2443/airtime/Credit?net=AIR&msisdn=2348124661601&amount=100&xref=7734c7da7687442
+`
+Request URL https://api.cowriesys.com:2443/airtime/Credit?net=AIR&msisdn=2348124661601&amount=100&xref=7734c7da7687442
 Request Headers 
 ClientId: me@client.com 
 Signature: TAP2kgjhhodYUcawFIwsn2GSxjoyVvWWQDZMhHuMFFM= 
@@ -72,7 +74,8 @@ A successful request will return the following JSON encoded response
 ```
 
 ## Data Request
-`Request URL https://api.cowriesys.com:2443/airtime/Balance 
+`
+Request URL https://api.cowriesys.com:2443/airtime/Balance 
 Request Headers 
 ClientId: me@client.com 
 Signature: TAP2kgjhhodYUcawFIwsn2GSxjoyVvWWQDZMhHuMFFM= 
@@ -144,7 +147,8 @@ MTN|10000|22GB
 9Mobile|110000|120GB
 
 ## Check Request
-`Request URL https://api.cowriesys.com:2443/airtime/Check?reference=7734c7da7687442
+`
+Request URL https://api.cowriesys.com:2443/airtime/Check?reference=7734c7da7687442
 Request Headers 
 ClientId: me@client.com 
 Signature: TAP2kgjhhodYUcawFIwsn2GSxjoyVvWWQDZMhHuMFFM= 
