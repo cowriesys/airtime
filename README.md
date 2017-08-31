@@ -104,6 +104,7 @@ A successful request will return the following JSON encoded response
     xref: "7734c7da7687442"
 }
 ```
+
 ## Network Codes
 The `net` request parameter for the Credit and Data API methods should be set according to this table
 
