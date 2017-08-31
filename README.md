@@ -174,6 +174,8 @@ A successful request will return the following JSON encoded response
 ```
 
 ## Network Codes
+The `net` request parameter for the Credit and Data API methods should be set according to this table
+
 Network|Code
 -------|----
 Airtel|AIR
