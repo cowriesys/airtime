@@ -45,6 +45,8 @@ Signature: TAP2kgjhhodYUcawFIwsn2GSxjoyVvWWQDZMhHuMFFM=
 Nonce: 20151110202513869
 ```
 ## Balance Response
+A successful request will return the following JSON encoded response
+
 **HTTP 200 OK**
 ```javascript
 {
@@ -64,6 +66,7 @@ Nonce: 20151110202513869
 
 ## Credit Response
 A successful request will return the following JSON encoded response
+
 **HTTP 200 OK**
 ```javascript
 {
@@ -84,6 +87,7 @@ Nonce: 20151110202513869
 
 ## Data Response
 A successful request will return the following JSON encoded response
+
 **HTTP 200 OK**
 ```javascript
 {
@@ -157,6 +161,7 @@ Nonce: 20151110202513869
 
 ## Check Response
 A successful request will return the following JSON encoded response
+
 **HTTP 200 OK**
 ```javascript
 {
