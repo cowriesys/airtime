@@ -8,7 +8,7 @@ This repository documents the Airtime REST API and contains bindings for the fol
 * Java
 * Javascript
 * PHP
-* Phython
+* Python
 
 ## API Structure
 The airtime API is based on a HTTP/REST architecture. API clients issue HTTP GET requests with parameters specified in the query string. API responses use standard HTTP response codes with messages encoded in JSON format.
