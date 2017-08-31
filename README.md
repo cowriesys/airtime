@@ -38,7 +38,9 @@ Check|Get the details of an airtime transaction using a unique identifier
 
 ## Balance Request
 ```
-Request URL https://api.cowriesys.com:2443/airtime/Balance 
+Request URL
+https://api.cowriesys.com:2443/airtime/Balance
+
 Request Headers 
 ClientId: me@client.com 
 Signature: TAP2kgjhhodYUcawFIwsn2GSxjoyVvWWQDZMhHuMFFM= 
@@ -57,7 +59,9 @@ A successful request will return the following JSON encoded response
 
 ## Credit Request
 ```
-Request URL https://api.cowriesys.com:2443/airtime/Credit?net=AIR&msisdn=2348124661601&amount=100&xref=7734c7da7687442
+Request URL
+https://api.cowriesys.com:2443/airtime/Credit?net=AIR&msisdn=2348124661601&amount=100&xref=7734c7da7687442
+
 Request Headers 
 ClientId: me@client.com 
 Signature: TAP2kgjhhodYUcawFIwsn2GSxjoyVvWWQDZMhHuMFFM= 
@@ -78,7 +82,9 @@ A successful request will return the following JSON encoded response
 
 ## Data Request
 ```
-Request URL https://api.cowriesys.com:2443/data/Credit?net=AIR&msisdn=2348124661601&amount=100&xref=7734c7da7687442
+Request URL
+https://api.cowriesys.com:2443/data/Credit?net=AIR&msisdn=2348124661601&amount=100&xref=7734c7da7687442
+
 Request Headers 
 ClientId: me@client.com 
 Signature: TAP2kgjhhodYUcawFIwsn2GSxjoyVvWWQDZMhHuMFFM= 
@@ -98,61 +104,72 @@ A successful request will return the following JSON encoded response
     xref: "7734c7da7687442"
 }
 ```
+## Network Codes
+The `net` request parameter for the Credit and Data API methods should be set according to this table
+
+Network|Code
+-------|----
+Airtel|AIR
+Glo|GLO
+MTN|MTN
+9Mobile|ETI
 
 ## Data Plans
 Network|Value|Size
 -------|-----|----
 Airtel|100|30MB
-Airtel|200|100MB
-Airtel|500|750MB
-Airtel|1000|1.5GB
-Airtel|2000|3.5GB
-Airtel|2500|5GB
-Airtel|3500|7GB
-Airtel|4000|9GB
-Airtel|10000|10GB
-Airtel|8000|16GB
-Airtel|10000|22GB
-Airtel|15000|30GB
-Airtel|36000|50GB
-Airtel|70000|100GB
-Airtel|136000|200GB
+|200|100MB
+|500|750MB
+|1,000|1.5GB
+|2,000|3.5GB
+|2,500|5GB
+|3,500|7GB
+|4,000|9GB
+|5,000|10GB
+|8,000|16GB
+|10,000|22GB
+|15,000|30GB
+|36,000|50GB
+|70,000|100GB
+|136,000|200GB
 Glo|100|70MB
-Glo|200|200MB
-Glo|500|1.6GB
-Glo|1000|3.2GB
-Glo|2000|7.5GB
-Glo|2500|10GB
-Glo|3000|12GB
-Glo|4000|16GB
-Glo|5000|24GB
-Glo|8000|32GB
-Glo|10000|46GB
-Glo|15000|60GB
-Glo|18000|90GB
+|200|200MB
+|500|1.6GB
+|1,000|3.2GB
+|2,000|7.5GB
+|2,500|10GB
+|3,000|12GB
+|4,000|16GB
+|5,000|24GB
+|8,000|32GB
+|10,000|46GB
+|15,000|60GB
+|18,000|90GB
 MTN|100|10MB
-MTN|200|500MB
-MTN|500|750MB
-MTN|1000|1GB
-MTN|2000|5GB
-MTN|5000|10GB
-MTN|10000|22GB
+|200|500MB
+|500|750MB
+|1,000|1GB
+|2000|5GB
+|5,000|10GB
+|10,000|22GB
 9Mobile|200|150MB
-9Mobile|1000|1GB
-9Mobile|1200|1.5GB
-9Mobile|2000|2.5GB
-9Mobile|3000|4GB
-9Mobile|8000|11.5GB
-9Mobile|10000|15GB
-9Mobile|18000|27.5GB
-9Mobile|27500|30GB
-9Mobile|5500|60GB
-9Mobile|84992|100GB
-9Mobile|110000|120GB
+|1,000|1GB
+|1,200|1.5GB
+|2,000|2.5GB
+|3,000|4GB
+|8,000|11.5GB
+|10,000|15GB
+|18,000|27.5GB
+|27,500|30GB
+|5,500|60GB
+|84,992|100GB
+|110,000|120GB
 
 ## Check Request
 ```
-Request URL https://api.cowriesys.com:2443/airtime/Check?reference=7734c7da7687442
+Request URL
+https://api.cowriesys.com:2443/airtime/Check?reference=7734c7da7687442
+
 Request Headers 
 ClientId: me@client.com 
 Signature: TAP2kgjhhodYUcawFIwsn2GSxjoyVvWWQDZMhHuMFFM= 
@@ -172,16 +189,6 @@ A successful request will return the following JSON encoded response
     xref: "7734c7da7687442"
 }
 ```
-
-## Network Codes
-The `net` request parameter for the Credit and Data API methods should be set according to this table
-
-Network|Code
--------|----
-Airtel|AIR
-Glo|GLO
-MTN|MTN
-9Mobile|ETI
 
 ## Response Error Codes
 A failed request will result in one of the following HTTP response error codes.
