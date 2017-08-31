@@ -165,7 +165,8 @@ A successful request will return the following JSON encoded response
 ```
 
 ## Response Error Codes
-A failed request will result in one of the following HTTP response error codes
+A failed request will result in one of the following HTTP response error codes.
+
 HTTP Code|HTTP Status|Description
 ---------|-----------|------------
 400|Bad Request|Signature does not match or one or more query parameters is incorrect 
