@@ -22,7 +22,8 @@ API client requests are authenticated and authorized using a supplied ClientId a
 ## Computing the Signature
 The algorithm used to compute the signature is described as follows 
 1. Generate a nonce (it can be any unique string) 
-2. Concatenate the nonce and the query string including the question mark “?” like this nonce?net={net}&msisdn={msisdn}&amount={amount}&channel={channel}&xref={xref} 
+2. Concatenate the nonce and the query string including the question mark `?`
+`{nonce}?net={net}&msisdn={msisdn}&amount={amount}&channel={channel}&xref={xref}`
 3. Convert the base64 encoded ClientKey to bytes 
 4. Instantiate a SHA256 object from the ClientKey bytes 
 5. Compute the SHA256 hash of the concatenated nonce and query string. The result yields the signature. Convert the signature to base64 format 
