@@ -140,6 +140,8 @@ Value|Size
 136,000|200GB
 
 ### Glo
+Value|Size
+-----|----
 100|70MB
 200|200MB
 500|1.6GB
@@ -155,6 +157,8 @@ Value|Size
 18,000|90GB
 
 ###MTN
+Value|Size
+-----|----
 100|10MB
 200|500MB
 500|750MB
@@ -164,6 +168,8 @@ Value|Size
 10,000|22GB
 
 ###9Mobile
+Value|Size
+-----|----
 200|150MB
 1,000|1GB
 1,200|1.5GB
@@ -176,6 +182,7 @@ Value|Size
 55,500|60GB
 84,992|100GB
 110,000|120GB
+
 
 ## Check Request
 ```
