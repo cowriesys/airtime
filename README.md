@@ -156,7 +156,7 @@ Value|Size
 15,000|60GB
 18,000|90GB
 
-###MTN
+### MTN
 Value|Size
 -----|----
 100|10MB
@@ -167,7 +167,7 @@ Value|Size
 5,000|10GB
 10,000|22GB
 
-###9Mobile
+### 9Mobile
 Value|Size
 -----|----
 200|150MB
