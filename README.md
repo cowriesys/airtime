@@ -118,8 +118,8 @@ MTN|MTN
 9Mobile|ETI
 
 ## Data Plans
- |Value|Size
--|-----|----
+Network|Value|Size
+-------|-----|----
 Airtel|100|30MB
 |200|100MB
 |500|750MB
