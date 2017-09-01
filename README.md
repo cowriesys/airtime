@@ -22,7 +22,7 @@ API client requests are authenticated and authorized using a supplied ClientId a
 ## Computing the Signature
 The algorithm used to compute the signature is described as follows 
 1. Generate a nonce (it can be any unique string) 
-2. Concatenate the nonce and the query string including the question mark `?`
+2. Concatenate the nonce and the query string including the question mark "?"
 `{nonce}?net={net}&msisdn={msisdn}&amount={amount}&channel={channel}&xref={xref}`
 3. Convert the base64 encoded ClientKey to bytes 
 4. Instantiate a SHA256 object from the ClientKey bytes 
@@ -118,55 +118,64 @@ MTN|MTN
 9Mobile|ETI
 
 ## Data Plans
-Network|Value|Size
--------|-----|----
-Airtel|100|30MB
- |200|100MB
- |500|750MB
- |1,000|1.5GB
- |2,000|3.5GB
- |2,500|5GB
- |3,500|7GB
- |4,000|9GB
- |5,000|10GB
- |8,000|16GB
- |10,000|22GB
- |15,000|30GB
- |36,000|50GB
- |70,000|100GB
- |136,000|200GB
-Glo|100|70MB
- |200|200MB
- |500|1.6GB
- |1,000|3.2GB
- |2,000|7.5GB
- |2,500|10GB
- |3,000|12GB
- |4,000|16GB
- |5,000|24GB
- |8,000|32GB
- |10,000|46GB
- |15,000|60GB
- |18,000|90GB
-MTN|100|10MB
- |200|500MB
- |500|750MB
- |1,000|1GB
- |2000|5GB
- |5,000|10GB
- |10,000|22GB
-9Mobile|200|150MB
- |1,000|1GB
- |1,200|1.5GB
- |2,000|2.5GB
- |3,000|4GB
- |8,000|11.5GB
- |10,000|15GB
- |18,000|27.5GB
- |27,500|30GB
- |5,500|60GB
- |84,992|100GB
- |110,000|120GB
+The following data plans are available
+
+### Airtel
+Value|Size
+-----|----
+100|30MB
+200|100MB
+500|750MB
+1,000|1.5GB
+2,000|3.5GB
+2,500|5GB
+3,500|7GB
+4,000|9GB
+5,000|10GB
+8,000|16GB
+10,000|22GB
+15,000|30GB
+36,000|50GB
+70,000|100GB
+136,000|200GB
+
+### Glo
+100|70MB
+200|200MB
+500|1.6GB
+1,000|3.2GB
+2,000|7.5GB
+2,500|10GB
+3,000|12GB
+4,000|16GB
+5,000|24GB
+8,000|32GB
+10,000|46GB
+15,000|60GB
+18,000|90GB
+
+###MTN
+100|10MB
+200|500MB
+500|750MB
+1,000|1GB
+2000|5GB
+5,000|10GB
+10,000|22GB
+
+###9Mobile
+200|150MB
+1,000|1GB
+1,200|1.5GB
+2,000|2.5GB
+3,000|4GB
+8,000|11.5GB
+10,000|15GB
+18,000|27.5GB
+27,500|30GB
+55,500|60GB
+84,992|100GB
+110,000|120GB
 
 ## Check Request
 ```
