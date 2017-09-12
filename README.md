@@ -54,7 +54,7 @@ A successful request will return the following JSON encoded response
 **HTTP 200 OK**
 ```javascript
 {
-    balance: "1253CBF19F431784E610",
+    balance: "100000",
     discount: 4
 }
 ```
