@@ -3,12 +3,16 @@ High performance airtime/data topup API for Nigerian networks Airtel, Glo, 9Mobi
 
 Cowrie Integrated Systems Limited is an NCC licensed Value Added Service provider of telecommunication products and services.
 Our Airtime REST API enables developers and service providers to dispense airtime/data plans from their applications.
+Send a request to [info@cowriesys.com](mailto:info@cowriesys.com) to signup for an account.
 This repository documents the Airtime REST API and contains bindings for the following languages/platforms
-* C#
-* Java
-* Javascript
-* PHP
-* Python
+* [C#](https://github.com/cowriesys/airtime/tree/master/cs)
+* [Java](https://github.com/cowriesys/airtime/tree/master/java)
+* [Javascript](https://github.com/cowriesys/airtime/tree/master/js)
+* [PHP](https://github.com/cowriesys/airtime/tree/master/php)
+* [Python](https://github.com/cowriesys/airtime/tree/master/python)
+
+To start using the API immeadiately, download the code samples for your chosen platform.
+The remainder of this document provides the specification for the API and describes how it is implemented.
 
 ## API Structure
 The airtime API is based on a HTTP/REST architecture. API clients issue HTTP GET requests with parameters specified in the query string. API responses use standard HTTP response codes with messages encoded in JSON format.
