@@ -121,67 +121,67 @@ MTN|MTN
 The following data plans are available
 
 ### Airtel
-Value|Size
------|----
-100|30MB
-200|100MB
-500|750MB
-1,000|1.5GB
-2,000|3.5GB
-2,500|5GB
-3,500|7GB
-4,000|9GB
-5,000|10GB
-8,000|16GB
-10,000|22GB
-15,000|30GB
-36,000|50GB
-70,000|100GB
-136,000|200GB
+Value|Size|Validity
+-----|----|--------
+100|30MB|1 day
+200|100MB|3 days
+500|750MB|2 weeks
+1,000|1.5GB|1 month
+2,000|3.5GB|1 month
+2,500|5GB|1 month
+3,500|7GB|1 month
+4,000|9GB|1 month
+5,000|10GB|1 month
+8,000|16GB|1 month
+10,000|22GB|1 month
+15,000|30GB|2 months
+36,000|50GB|6 months
+70,000|100GB|1 year
+136,000|200GB|1 year
 
 ### Glo
-Value|Size
------|----
-100|70MB
-200|200MB
-500|1.6GB
-1,000|3.2GB
-2,000|7.5GB
-2,500|10GB
-3,000|12GB
-4,000|16GB
-5,000|24GB
-8,000|32GB
-10,000|46GB
-15,000|60GB
-18,000|90GB
+Value|Size|Validity
+-----|----|--------
+100|70MB|1 day
+200|200MB|5 days
+500|1.6GB|10 days
+1,000|3.2GB|1 month
+2,000|7.5GB|1 month
+2,500|10GB|1 month
+3,000|12GB|1 month
+4,000|16GB|1 month
+5,000|24GB|1 month
+8,000|32GB|1 month
+10,000|46GB|1 month
+15,000|60GB|1 month
+18,000|90GB|1 month
 
 ### MTN
-Value|Size
------|----
-100|10MB
-200|500MB
-500|750MB
-1,000|1GB
-2000|5GB
-5,000|10GB
-10,000|22GB
+Value|Size|Validity
+-----|----|--------
+100|10MB|1 day
+200|500MB|1 day
+500|750MB|1 week
+1,000|1GB|1 month
+2000|5GB|1 month
+5,000|10GB|1 month
+10,000|22GB|1 month
 
 ### 9Mobile
-Value|Size
------|----
-200|150MB
-1,000|1GB
-1,200|1.5GB
-2,000|2.5GB
-3,000|4GB
-8,000|11.5GB
-10,000|15GB
-18,000|27.5GB
-27,500|30GB
-55,500|60GB
-84,992|100GB
-110,000|120GB
+Value|Size|Validity
+-----|----|--------
+200|150MB|1 week
+1,000|1GB|1 month
+1,200|1.5GB|1 month
+2,000|2.5GB|1 month
+3,000|4GB|1 month
+8,000|11.5GB|1 month
+10,000|15GB|1 month
+18,000|27.5GB|1 month
+27,500|30GB|3 months
+55,500|60GB|6 months
+84,992|100GB|6 months
+110,000|120GB|1 year
 
 
 ## Check Request
