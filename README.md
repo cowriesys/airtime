@@ -1,8 +1,8 @@
 # Cowrie Integrated Systems Airtime API
-High performance airtime/data topup API for Nigerian networks Airtel, Glo, 9Mobile and MTN
+High performance airtime/data topup API and network agnostic logical PINs for Nigerian networks Airtel, Glo, 9Mobile and MTN
 
 Cowrie Integrated Systems Limited is an NCC licensed Value Added Service provider of telecommunication products and services.
-Our Airtime REST API enables developers and service providers to dispense airtime/data plans from their applications.
+Our Airtime REST API enables developers and service providers to dispense airtime/data plans/logical PINs from their applications.
 Send a request to [info@cowriesys.com](mailto:info@cowriesys.com) to signup for an account.
 
 This repository documents the Airtime REST API and contains bindings for the following languages/platforms
@@ -37,15 +37,16 @@ The algorithm used to compute the signature is described as follows
 ## API Methods
 Name|Description
 ----|-----------
-Balance|Get airtime account balance and discount 
-Credit|Credit an amount airtime to a phone number on network 
-Data|Credit a data plan to a phone number on network
-Check|Get the details of an airtime transaction using a unique identifier
+[Balance](#balance-request)|Get airtime account balance and discount 
+[Credit](#credit-request)|Credit an amount airtime to a phone number on network 
+[Data](#data-request)|Credit a data plan to a phone number on network
+[Check](#check-request)|Get the details of an airtime transaction using a unique identifier
+[AllocateSingle](#allocatesingle-pin-request)|Allocate a single voucher worth an amount
 
 ## Balance Request
 ```
 Request URL
-https://api.cowriesys.com:2443/airtime/Balance
+https://api.cowriesys.com/airtime/Balance
 
 Request Headers 
 ClientId: me@client.com 
@@ -67,7 +68,7 @@ A successful request will return the following JSON encoded response
 ## Credit Request
 ```
 Request URL
-https://api.cowriesys.com:2443/airtime/Credit?net=AIR&msisdn=2348124661601&amount=100&xref=7734c7da7687442
+https://api.cowriesys.com/airtime/Credit?net=AIR&msisdn=2348124661601&amount=100&xref=7734c7da7687442
 
 Request Headers 
 ClientId: me@client.com 
@@ -90,7 +91,7 @@ A successful request will return the following JSON encoded response
 ## Data Request
 ```
 Request URL
-https://api.cowriesys.com:2443/data/Credit?net=AIR&msisdn=2348124661601&amount=100&xref=7734c7da7687442
+https://api.cowriesys.com/data/Credit?net=AIR&msisdn=2348124661601&amount=100&xref=7734c7da7687442
 
 Request Headers 
 ClientId: me@client.com 
@@ -192,7 +193,7 @@ Value|Size|Validity
 ## Check Request
 ```
 Request URL
-https://api.cowriesys.com:2443/airtime/Check?reference=7734c7da7687442
+https://api.cowriesys.com/airtime/Check?reference=7734c7da7687442
 
 Request Headers 
 ClientId: me@client.com 
@@ -210,7 +211,27 @@ A successful request will return the following JSON encoded response
     net: "AIR",
     msisdn: "2348124661601",  
     amount: 100,  
-    xref: "7734c7da7687442"
+    xref: "7734c7da7687442",
+    status: "OK"
+}
+```
+
+## AllocateSingle Pin Request
+```
+Request URL
+https://api.cowriesys.com/pin/AllocateSingle?unit=110&type=AIRTIME&message=HappyNewYear&xref=20180101215933289
+```
+
+## AllocateSingle Pin Response
+```javascript
+{
+    "serial": "97054",
+    "pin": "101436786399",
+    "unit": 110,
+    "fee": 0,
+    "type": "AIRTIME",
+    "xref": "20180101215933289",
+    "message": "HappyNewYear"
 }
 ```
 
@@ -220,7 +241,7 @@ A failed request will result in one of the following HTTP response error codes.
 HTTP Code|HTTP Status|Description
 ---------|-----------|------------
 400|Bad Request|Signature does not match or one or more query parameters is incorrect 
-402|Payment Required|Client account requires payment 
+402|Payment Required|Insufficient balance, client account requires payment 
 403|Forbidden|One or more required headers are missing
 404|Not Found|Network and/or MSISDN are incorrect
 409|Conflict|Nonce has been used before 
