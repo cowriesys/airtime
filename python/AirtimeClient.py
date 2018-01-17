@@ -60,6 +60,15 @@ def Check(reference):
     check.raise_for_status()
     return check.text
 
+def AllocateSingle(unit, voucher_type, message, xref):
+    parameters = {'unit' : unit, 'type' : voucher_type, 'message' : message, 'xref' : xref }
+    nonce = Nonce()
+    signature = Sign(nonce, parameters)
+    headers = {'ClientId' : clientId, 'Signature' : signature, 'Nonce' : nonce}
+    voucher = requests.get(url + "/pin/AllocateSingle", headers = headers, params = parameters)
+    voucher.raise_for_status()
+    return voucher.text
+
 net = str(sys.argv[1]) # net can be AIR, ETI, GLO, MTN
 msisdn = str(sys.argv[2]) # msisdn in international format 234 prefix
 amount =  sys.argv[3] # minimum varies across networks

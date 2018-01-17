@@ -141,5 +141,38 @@ module.exports = {
 		}).catch(function(error) {
 			console.log(error);
 		});
+	},
+
+	allocateSingle: function(unit, type, message, xref) {
+		
+		var api = URL + '/pin/AllocateSingle?unit='+unit
+											+'&type='+type
+											+'&message='+message
+											+'&xref='+xref;
+		var nonce = this.nonce();
+		var signature = this.sign(ClientKey, nonce, api.substring(api.indexOf('?')));
+
+		console.log('fetching: ' + api + ' ClientId: ' + ClientId + ' nonce: ' + nonce + ' signature: ' + signature);
+
+		var response = fetch(api, {
+			headers: {
+				'Content-Type': 'application/json',
+				'ClientId': ClientId,
+				'Nonce': nonce,
+				'Signature': signature
+			}
+		}).then(function (response) {
+
+			if (!response.ok) {
+				throw 'HTTP error: ' + response.status;
+			}
+			return response.json();
+
+		}).then(function (result) {
+			console.log('received: pin: ' + result.pin + ' serial: ' + result.serial + ' unit: ' + result.unit + ' type: ' + result.type + ' message: ' + result.message + ' xref: ' + result.xref);
+
+		}).catch(function(error) {
+			console.log(error);
+		});
 	}
 }
