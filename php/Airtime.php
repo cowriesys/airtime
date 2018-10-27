@@ -1,7 +1,7 @@
 <?php
 class Airtime {
 
-	private $url ='https://api.cowriesys.com:2443';
+	private $url ='https://api.cowriesys.com';
 	private $clientId = 'ClientId';
 	private $clientKey = 'ClientKey';
 	private $terminalId = '0002';
