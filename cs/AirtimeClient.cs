@@ -289,6 +289,29 @@ namespace Cisl
             return result;
         }
 
+        public List<AllocateSingleResult> AllocateMultiple(int count, int unit, String type, String message, String xref)
+        {
+            String Nonce = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            String Xref = Guid.NewGuid().ToString("N");
+
+            WebClient http = new WebClient();
+            http.QueryString.Add("count", count.ToString());
+            http.QueryString.Add("unit", unit.ToString());
+            http.QueryString.Add("type", type);
+            http.QueryString.Add("message", message);
+            http.QueryString.Add("xref", xref);
+
+            String Signature = ComputeSignature(Nonce, http.QueryString);
+
+            http.Headers.Add("ClientId", ClientId);
+            http.Headers.Add("Signature", Signature);
+            http.Headers.Add("Nonce", Nonce);
+
+            String response = http.DownloadString(URL + "/pin/Allocate");
+            List<AllocateSingleResult> result = JsonConvert.DeserializeObject<List<AllocateSingleResult>>(response);
+            return result;
+        }
+
         private string ComputeSignature(String Nonce, NameValueCollection query)
         {
             String signature = String.Empty;
