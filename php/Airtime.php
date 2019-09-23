@@ -73,6 +73,27 @@ class Airtime {
 		curl_close($request);
 	}
 
+	public function allocateMultiple($count, $unit, $type, $message, $xref) {
+		$api = '/pin/Allocate';
+		$nonce = uniqid();
+		$queryString = '?count='.$count.'&unit='.$unit.'&type='.$type.'&message='.$message.'&xref='.$xref;
+
+		$signature = $this->sign($nonce.$queryString);
+
+		$request = curl_init($this->url.$api.$queryString);
+		curl_setopt($request, CURLOPT_HTTPHEADER, array('ClientId: '.$this->clientId,
+		                                                'Signature: '.$signature,
+		                                                'Nonce: '.$nonce));
+		$result = curl_exec($request);
+
+		if (!$result) {
+		    die('Error: "' . curl_error($request) . '" - Code: ' . curl_errno($request));
+		}
+
+		echo($result);
+		curl_close($request);
+	}
+
 	public function dataCredit($net, $msisdn, $amount) {
 		$api = '/data/Credit';
 		$nonce = uniqid();
