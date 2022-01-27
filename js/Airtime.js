@@ -1,7 +1,7 @@
 const CryptoJS = require('crypto-js');
 var fetch = require('node-fetch');
 
-const URL = 'https://api.cowriesys.com:2443';
+const URL = 'https://api.cowriesys.com';
 const ClientId = 'ClientId';
 const ClientKey = 'ClientKey';
 
