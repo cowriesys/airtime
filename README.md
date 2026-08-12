@@ -91,7 +91,7 @@ A successful request will return the following JSON encoded response
 ## Data Request
 ```
 Request URL
-https://api.cowriesys.com/data/Credit?net=AIR&msisdn=2348124661601&amount=100&xref=7734c7da7687442
+https://api.cowriesys.com/data/Credit?net=AIR&msisdn=2348124661601&amount=100&xref=7734c7da7687442&bundle=500mb1d
 
 Request Headers 
 ClientId: me@client.com 
@@ -219,10 +219,13 @@ A successful request will return the following JSON encoded response
 ## AllocateSingle Pin Request
 ```
 Request URL
-https://api.cowriesys.com/pin/AllocateSingle?unit=110&type=AIRTIME&message=HappyNewYear&xref=20180101215933289
+https://api.cowriesys.com/pin/AllocateSingle?unit=110&type=AIRTIME&message=HappyNewYear&xref=25247c969d8046e5b8554da08a4d0fd7
 ```
 
 ## AllocateSingle Pin Response
+A successful request will return the following JSON encoded response
+
+**HTTP 200 OK**
 ```javascript
 {
     "serial": "97054",
@@ -232,6 +235,60 @@ https://api.cowriesys.com/pin/AllocateSingle?unit=110&type=AIRTIME&message=Happy
     "type": "AIRTIME",
     "xref": "20180101215933289",
     "message": "HappyNewYear"
+}
+```
+
+## AllocateBatch Pin Request
+```
+Request URL
+https://api.cowriesys.com/pin/Allocate?unit=210&count=2&type=AIRTIME&message=HappyNewYear&xref=42e54bb1241d4c31a8bc6745ab5fedad
+```
+
+## AllocateBatch Pin Response
+A successful request will return the following JSON encoded response
+
+**HTTP 200 OK**
+```javascript
+[
+    {
+        "serial": "97055",
+        "pin": "101436786399",
+        "unit": 210,
+        "fee": 0,
+        "type": "AIRTIME",
+        "xref": "42e54bb1241d4c31a8bc6745ab5fedad",
+        "message": "HappyNewYear"
+    },
+    {
+        "serial": "97056",
+        "pin": "2135096597208",
+        "unit": 210,
+        "fee": 0,
+        "type": "AIRTIME",
+        "xref": "42e54bb1241d4c31a8bc6745ab5fedad",
+        "message": "HappyNewYear"
+    }
+]
+```
+
+## Redeem Pin Request
+```
+Request URL
+https://api.cowriesys.com/pin/Redeem?net=AIR&msisdn=2348124661601&pin=101436786399&xref=f85c362677ba4c8fa1e6613190ee8c69
+
+Request Headers 
+ClientId: me@client.com 
+Signature: TAP2kgjhhodYUcawFIwsn2GSxjoyVvWWQDZMhHuMFFM= 
+Nonce: 20151110202513869
+```
+
+## Redeem Pin Response
+A successful request will return the following JSON encoded response
+
+**HTTP 200 OK**
+```javascript
+{
+    message: "Topup complete"
 }
 ```
 
