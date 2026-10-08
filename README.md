@@ -3,7 +3,7 @@ High performance airtime/data topup API and network agnostic logical PINs for Ni
 
 Cowrie Integrated Systems Limited is an NCC licensed Value Added Service provider of telecommunication products and services.
 Our Airtime REST API enables developers and service providers to dispense airtime/data plans/logical PINs from their applications.
-Send a request to [info@cowriesys.com](mailto:info@cowriesys.com) to signup for an account.
+Send a request to [info@cowriesys.com](mailto:vas@cowriesys.com) to signup for an account.
 
 This repository documents the Airtime REST API and contains bindings for the following languages/platforms
 * [C#](https://github.com/cowriesys/airtime/tree/master/cs)
