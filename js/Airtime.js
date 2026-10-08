@@ -1,9 +1,11 @@
 const CryptoJS = require('crypto-js');
 var fetch = require('node-fetch');
+//import CryptoJS from 'crypto-js';
+//import fetch from 'node-fetch';
 
 const URL = 'https://api.cowriesys.com';
-const ClientId = 'ClientId';
-const ClientKey = 'ClientKey';
+const ClientId = 'CLIENT-ID';
+const ClientKey = 'CLIENT-KEY';
 
 module.exports = {
 

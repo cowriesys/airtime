@@ -1,5 +1,5 @@
 # Cowrie Integrated Systems Airtime API
-High performance airtime/data topup API and network agnostic logical PINs for Nigerian networks Airtel, Glo, 9Mobile and MTN
+High performance airtime/data topup API and network agnostic logical PINs for Nigerian networks Airtel, Glo, T2mobile and MTN
 
 Cowrie Integrated Systems Limited is an NCC licensed Value Added Service provider of telecommunication products and services.
 Our Airtime REST API enables developers and service providers to dispense airtime/data plans/logical PINs from their applications.
@@ -121,7 +121,7 @@ Network|Code
 Airtel|AIR
 Glo|GLO
 MTN|MTN
-9Mobile|ETI
+T2mobile|ETI
 
 ## Data Plans
 The following data plans are available
@@ -173,7 +173,7 @@ Value|Size|Validity
 5,000|10GB|1 month
 10,000|22GB|1 month
 
-### 9Mobile
+### T2mobile
 Value|Size|Validity
 -----|----|--------
 200|150MB|1 week
